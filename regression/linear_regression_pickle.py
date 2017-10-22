@@ -36,13 +36,13 @@ y = np.array(df['label'])
 
 X_train, X_test, y_train, y_test = cross_validation.train_test_split(X, y, test_size=0.2)
 
-# clf = LinearRegression()
-# clf.fit(X_train, y_train)
-#
-# with open('regression/linearregression.pickle', 'wb') as f:
-#     pickle.dump(clf, f)
+clf = LinearRegression()
+clf.fit(X_train, y_train)
 
-pickle_in = open('regression/linearregression.pickle', 'rb')
+with open('regression/linear_regression.pickle', 'wb') as f:
+    pickle.dump(clf, f)
+
+pickle_in = open('regression/linear_regression.pickle', 'rb')
 clf = pickle.load(pickle_in)
 
 accuracy = clf.score(X_test, y_test)
