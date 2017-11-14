@@ -39,10 +39,10 @@ X_train, X_test, y_train, y_test = cross_validation.train_test_split(X, y, test_
 clf = LinearRegression()
 clf.fit(X_train, y_train)
 
-with open('regression/linear_regression.pickle', 'wb') as f:
+with open('linear_regression.pickle', 'wb') as f:
     pickle.dump(clf, f)
 
-pickle_in = open('regression/linear_regression.pickle', 'rb')
+pickle_in = open('linear_regression.pickle', 'rb')
 clf = pickle.load(pickle_in)
 
 accuracy = clf.score(X_test, y_test)
